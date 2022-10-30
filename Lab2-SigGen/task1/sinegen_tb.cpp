@@ -37,8 +37,6 @@ int main(int argc,char **argv, char **env){
                 top->clk = !top->clk;
                 top->eval();
             }
-            
-            count = vbdValue();
 
             vbdPlot((int(top->dout)), 0, 255);
             vbdCycle(i);
