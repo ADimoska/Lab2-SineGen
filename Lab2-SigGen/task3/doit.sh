@@ -1,5 +1,5 @@
 rm -rf obj_dir
-rm -f sinegen.vcd
-verilator -Wall --cc --trace sinegen.sv counter.sv rom.sv --exe sinegen_tb.cpp
-make -j -C obj_dir/ -f Vsinegen.mk Vsinegen
-obj_dir/Vsinegen
+rm -f sigdelay.vcd
+verilator -Wall --cc --trace sigdelay.sv counter.sv ram.sv --exe sigdelay_tb.cpp
+make -j -C obj_dir/ -f Vsigdelay.mk Vsigdelay
+obj_dir/Vsigdelay
