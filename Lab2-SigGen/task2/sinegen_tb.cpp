@@ -20,13 +20,14 @@ int main(int argc,char **argv, char **env){
 
     // init Vbuddy
     if (vbdOpen()!=1) return(-1);
-    vbdHeader("L2T1: SigGen");
+    vbdHeader("L2T2: Offset");
 
     // initialize simulation inputs
     top->clk = 1 ;
     top->rst = 1 ;
     top->en = 1;
-    top->incr = vbdValue();
+    top->incr = 1;
+    top->offset = vbdValue();
 
     
     //run simulation for many clock cycles
@@ -38,7 +39,8 @@ int main(int argc,char **argv, char **env){
                 top->eval();
             }
 
-            vbdPlot((int(top->dout)), 0, 255);
+            vbdPlot((int(top->dout1)), 0, 255);
+            vbdPlot((int(top->dout2)), 0, 255);
             vbdCycle(i);
 
             // ++++ Send count value to Vbuddy
