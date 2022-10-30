@@ -1,11 +1,12 @@
 module sinegen #(
-    parameter ADDRESS_WIDTH = 8,
+    parameter WIDTH = 8,
+    ADDRESS_WIDTH = 8,
     DATA_WIDTH = 8
 )(
     input logic         clk,
     input logic         rst,
     input logic         en,
-   // input logic         [WIDTH-1:0] incr,
+    input logic         [WIDTH-1:0] incr,
     output logic       [DATA_WIDTH-1:0]   dout
    
 );
@@ -15,7 +16,8 @@ counter mycounter(
   .clk (clk),
   .rst (rst),
   .en (en),
-  .count (addr)
+  .count (addr),
+  .incr (incr)
 );
 
 rom myrom(

@@ -6,6 +6,7 @@
 int main(int argc,char **argv, char **env){
     int i;
     int clk;
+    int count;
 
     Verilated::commandArgs(argc, argv);
     //init top verilog instance 
@@ -25,6 +26,7 @@ int main(int argc,char **argv, char **env){
     top->clk = 1 ;
     top->rst = 1 ;
     top->en = 1;
+    top->incr = vbdValue();
 
     
     //run simulation for many clock cycles
@@ -36,7 +38,9 @@ int main(int argc,char **argv, char **env){
                 top->eval();
             }
             
-            vbdPlot(int(top->dout), 0, 255);
+            count = vbdValue();
+
+            vbdPlot((int(top->dout)), 0, 255);
             vbdCycle(i);
 
             // ++++ Send count value to Vbuddy
